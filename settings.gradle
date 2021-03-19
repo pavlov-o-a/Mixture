@@ -1,0 +1,3 @@
+rootProject.name = "Mixture"
+include ':app'
+include ':about'

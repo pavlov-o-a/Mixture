@@ -1,0 +1,31 @@
+buildscript {
+    ext.kotlin_version = "1.4.31"
+    ext.navigation_v = "2.3.4"
+    ext.core_ctx_v = "1.3.2"
+    ext.apcompat_v = "1.2.0"
+    ext.material_v = "1.3.0"
+    ext.junit_v = "4.+"
+    ext.ext_junit_v = "1.1.2"
+    ext.espresso_v = "3.3.0"
+    ext.annotation_v = "3.3.0"
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.0-beta06"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
