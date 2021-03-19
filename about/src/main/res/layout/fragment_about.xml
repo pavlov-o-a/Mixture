@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/about_disclaimer"
@@ -32,5 +32,16 @@
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/about_name"
         android:text="@string/about_disclaimer"
-        android:gravity="center"/>
+        android:gravity="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/about_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="About me"
+        android:textAllCaps="false"
+        android:background="#eee"
+        android:foreground="@drawable/selector_ripple"
+        app:layout_constraintTop_toBottomOf="@id/about_disclaimer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

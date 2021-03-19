@@ -30,11 +30,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dynamicFeatures = [':about']
+    buildFeatures {
+        viewBinding true
+    }
+    dynamicFeatures = [':about', ':profile']
 }
 
 dependencies {
-
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "androidx.core:core-ktx:$core_ctx_v"
     api "androidx.appcompat:appcompat:$apcompat_v"
@@ -42,6 +44,9 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:$navigation_v"
     api "androidx.navigation:navigation-ui-ktx:$navigation_v"
     api "androidx.navigation:navigation-dynamic-features-fragment:$navigation_v"
+
+    api project(":common")
+
     testImplementation "junit:junit:$junit_v"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_v"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_v"

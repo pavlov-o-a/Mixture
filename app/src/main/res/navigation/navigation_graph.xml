@@ -7,5 +7,14 @@
     <fragment
         app:moduleName="about"
         android:id="@+id/nav_about"
-        android:name="com.mixture.about.AboutFragment"/>
+        android:name="com.mixture.about.AboutFragment">
+        <action
+            android:id="@+id/nav_to_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        app:moduleName="profile"
+        android:id="@+id/nav_profile"
+        android:name="com.mixture.profile.ProfileFragment" />
 </navigation>

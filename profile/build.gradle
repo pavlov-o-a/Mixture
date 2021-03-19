@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.mixture.about"
+        applicationId "com.mixture.profile"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -30,8 +30,10 @@ android {
 
 dependencies {
     implementation project(":app")
-    testImplementation "junit:junit:$junit_v"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit_v"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_v"
-    androidTestImplementation "androidx.annotation:annotation:$annotation_v"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
 }
