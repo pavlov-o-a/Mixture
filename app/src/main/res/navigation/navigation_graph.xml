@@ -11,10 +11,18 @@
         <action
             android:id="@+id/nav_to_profile"
             app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/nav_to_package"
+            app:destination="@id/nav_package" />
     </fragment>
 
     <fragment
         app:moduleName="profile"
         android:id="@+id/nav_profile"
         android:name="com.mixture.profile.ProfileFragment" />
+
+    <fragment
+        app:moduleName="packagecheck_app"
+        android:id="@+id/nav_package"
+        android:name="com.mixture.packagecheck.ui.PackageCheckFragment" />
 </navigation>

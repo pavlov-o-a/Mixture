@@ -45,4 +45,14 @@
         android:layout_marginEnd="@dimen/margin_edge"
         android:text="@string/about_me"
         app:layout_constraintTop_toBottomOf="@id/about_disclaimer" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/about_package"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:text="@string/about_package"
+        app:layout_constraintTop_toBottomOf="@id/about_profile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,7 +65,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 .show()
             true
         }
-        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun sendIntentSafely(intent: Intent) {

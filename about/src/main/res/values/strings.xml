@@ -2,4 +2,5 @@
 <resources>
     <string name="about_disclaimer">An app that have no purposes but does something. \nHere I try new technologies and approaches.</string>
     <string name="about_me">About me</string>
+    <string name="about_package">Check package name</string>
 </resources>

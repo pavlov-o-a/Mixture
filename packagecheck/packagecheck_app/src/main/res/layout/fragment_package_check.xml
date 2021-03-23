@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/package_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/package_description"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
+        app:layout_constraintTop_toBottomOf="@id/profile_toolbar" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/package_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/AppButtonStyle"
+        android:hint="@string/package_hint"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:paddingStart="@dimen/margin_edge"
+        android:paddingEnd="@dimen/margin_edge"
+        android:background="@drawable/package_edit_background"
+        app:layout_constraintTop_toBottomOf="@id/package_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/package_check" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/package_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/package_check"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginEnd="@dimen/margin_edge"
+        app:layout_constraintTop_toBottomOf="@id/package_description"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/package_progress"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/secondary"
+        app:layout_constraintTop_toTopOf="@id/package_check"
+        app:layout_constraintStart_toStartOf="@id/package_check"
+        app:layout_constraintEnd_toEndOf="@id/package_check"
+        android:backgroundTint="@color/black"
+        android:indeterminateTint="@color/black"
+        android:progressTint="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/package_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textSize="20sp"
+        android:text="@string/package_free"
+        android:drawableEnd="@drawable/ic_like"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/package_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/package_wrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textSize="20sp"
+        android:text="@string/package_taken"
+        android:drawableEnd="@drawable/ic_wrong"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/package_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

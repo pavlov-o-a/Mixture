@@ -15,5 +15,8 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         viewBinder.aboutProfile.setOnClickListener {
             Navigation.findNavController(it).navigate(com.mixture.R.id.nav_to_profile)
         }
+        viewBinder.aboutPackage.setOnClickListener {
+            Navigation.findNavController(it).navigate(com.mixture.R.id.nav_to_package)
+        }
     }
 }

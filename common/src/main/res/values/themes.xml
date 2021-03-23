@@ -17,6 +17,7 @@
         <item name="android:textColor">@color/primary_font</item>
         <item name="toolbarStyle">@style/AppToolbar</item>
         <item name="buttonStyle">@style/AppButtonStyle</item>
+        <item name="android:fontFamily">@font/roboto_family</item>
     </style>
 
     <style name="AppToolbar" parent="Widget.AppCompat.Toolbar">
