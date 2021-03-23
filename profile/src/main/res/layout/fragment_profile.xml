@@ -8,8 +8,6 @@
         android:id="@+id/profile_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        style="?toolbarStyle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.mixture.common.views.CircleImageView
@@ -26,31 +24,59 @@
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_top"
         android:text="My name is Oleg Pavlov \nI am Senior Software Engineer"
         android:textSize="24sp"
         android:gravity="center"
-        android:textColor="#888"
         app:layout_constraintTop_toBottomOf="@id/profile_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/linkedin_link"
+        android:id="@+id/gmail_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/margin_top"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        android:text="LinkedIn profile"
+        android:text="@string/profile_gmail_title"
         android:textAllCaps="false"
-        android:drawableLeft="@drawable/ic_linkedin"
+        android:drawableLeft="@drawable/ic_gmail"
         android:drawablePadding="5dp"
-        android:background="#0000"
-        android:foreground="@drawable/selector_ripple"
+        android:background="@drawable/selector_ripple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_name" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/linkedin_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/profile_linkedin_title"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/ic_linkedin"
+        android:drawablePadding="5dp"
+        android:background="@drawable/selector_ripple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gmail_link" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/git_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/profile_git_title"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/ic_git"
+        android:drawablePadding="5dp"
+        android:background="@drawable/selector_ripple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linkedin_link" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

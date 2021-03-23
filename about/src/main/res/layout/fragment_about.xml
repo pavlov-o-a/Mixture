@@ -8,7 +8,7 @@
         android:id="@+id/about_icon"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         app:srcCompat="@mipmap/ic_launcher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,18 +18,20 @@
         android:id="@+id/about_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="@string/app_name"
         app:layout_constraintTop_toBottomOf="@id/about_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/about_disclaimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
+        android:textSize="13sp"
         app:layout_constraintTop_toBottomOf="@id/about_name"
         android:text="@string/about_disclaimer"
         android:gravity="center" />
@@ -38,10 +40,9 @@
         android:id="@+id/about_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="About me"
-        android:textAllCaps="false"
-        android:background="#eee"
-        android:foreground="@drawable/selector_ripple"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:text="@string/about_me"
         app:layout_constraintTop_toBottomOf="@id/about_disclaimer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

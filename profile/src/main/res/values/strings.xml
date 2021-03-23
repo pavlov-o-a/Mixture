@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_info">This screen is a Feature Module. It can be loaded dynamically.</string>
+    <string name="profile_link_error">No app supports showing links</string>
+    <string name="profile_linkedin_title">LinkedIn profile</string>
+    <string name="profile_git_title">Git profile</string>
+    <string name="profile_gmail_title">My mail</string>
+</resources>
