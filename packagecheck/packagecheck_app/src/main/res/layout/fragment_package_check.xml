@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/profile_toolbar"
+        android:id="@+id/package_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +20,7 @@
         android:layout_marginTop="@dimen/margin_top"
         android:layout_marginStart="@dimen/margin_edge"
         android:layout_marginEnd="@dimen/margin_edge"
-        app:layout_constraintTop_toBottomOf="@id/profile_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/package_toolbar" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/package_edit"

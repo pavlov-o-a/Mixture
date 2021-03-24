@@ -9,7 +9,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="60dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/ic_app"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:textSize="13sp"
+        android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/about_name"
         android:text="@string/about_disclaimer"
         android:gravity="center" />

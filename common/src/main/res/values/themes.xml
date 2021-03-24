@@ -18,6 +18,7 @@
         <item name="toolbarStyle">@style/AppToolbar</item>
         <item name="buttonStyle">@style/AppButtonStyle</item>
         <item name="android:fontFamily">@font/roboto_family</item>
+        <item name="materialAlertDialogTheme">@style/AppAlertTheme</item>
     </style>
 
     <style name="AppToolbar" parent="Widget.AppCompat.Toolbar">
@@ -30,5 +31,28 @@
     <style name="AppButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/selector_button</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Material Alert Theming -->
+    <style name="AppAlertTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/secondary_dark</item>
+        <item name="colorSecondary">@color/secondary_dark</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AppAlertBodyTextStyle</item>
+        <item name="alertDialogStyle">@style/AppAlertStyle</item>
+        <item name="shapeAppearance">@style/AppAlertShape</item>
+    </style>
+
+    <style name="AppAlertBodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/primary_font</item>
+    </style>
+
+    <style name="AppAlertStyle" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/AppAlertShape</item>
+    </style>
+
+    <style name="AppAlertShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/button_radius</item>
     </style>
 </resources>

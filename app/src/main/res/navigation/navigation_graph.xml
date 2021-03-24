@@ -10,10 +10,12 @@
         android:name="com.mixture.about.AboutFragment">
         <action
             android:id="@+id/nav_to_profile"
-            app:destination="@id/nav_profile" />
+            app:destination="@id/nav_profile"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/nav_to_package"
-            app:destination="@id/nav_package" />
+            app:destination="@id/nav_package"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 
     <fragment

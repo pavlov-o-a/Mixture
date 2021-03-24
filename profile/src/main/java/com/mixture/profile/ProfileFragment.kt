@@ -9,10 +9,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mixture.profile.databinding.FragmentProfileBinding
 
 private const val GMAIL_URL = "mailto:forpoststuff@gmail.com"
@@ -59,7 +59,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             val message = SpannableStringBuilder(getString(R.string.profile_info)).apply {
                 setSpan(linkSpan, 17, 31, SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
                 .show()
