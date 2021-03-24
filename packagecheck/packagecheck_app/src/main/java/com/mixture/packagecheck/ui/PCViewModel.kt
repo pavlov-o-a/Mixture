@@ -1,6 +1,7 @@
 package com.mixture.packagecheck.ui
 
 import androidx.lifecycle.LiveData
+import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
 
 interface PCViewModel {
@@ -15,4 +16,5 @@ interface PCViewModel {
     fun progressVisibility(): LiveData<Boolean>
     fun okVisibility(): LiveData<Boolean>
     fun wrongVisibility(): LiveData<Boolean>
+    fun showError(): LiveData<DomainError>
 }

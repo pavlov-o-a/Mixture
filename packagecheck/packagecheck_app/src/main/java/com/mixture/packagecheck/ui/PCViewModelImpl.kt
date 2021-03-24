@@ -4,19 +4,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
 import com.mixture.common.utils.trigger
-import kotlinx.coroutines.delay
+import com.mixture.packagecheck.domain.IDChecker
 import kotlinx.coroutines.launch
-import kotlin.random.Random
+import javax.inject.Inject
 
-class PCViewModelImpl : ViewModel(), PCViewModel {
+class PCViewModelImpl @Inject constructor(private val idChecker: IDChecker) : ViewModel(),
+    PCViewModel {
     private val navigateUp = MutableLiveData<Trigger>()
     private val showInfo = MutableLiveData<Trigger>()
     private val checkVisibility = MutableLiveData<Boolean>()
     private val progressVisibility = MutableLiveData<Boolean>()
     private val okVisibility = MutableLiveData<Boolean>()
     private val wrongVisibility = MutableLiveData<Boolean>()
+    private val errorData = MutableLiveData<DomainError>()
 
     override fun navigationClicked() {
         navigateUp.trigger()
@@ -33,11 +36,15 @@ class PCViewModelImpl : ViewModel(), PCViewModel {
         wrongVisibility.value = false
         progressVisibility.value = true
         viewModelScope.launch {
-            delay(1000)
-            Random.nextBoolean().let {
-                wrongVisibility.value = it
-                okVisibility.value = !it
-            }
+            idChecker.checkPackageAvailability().process(
+                { availability ->
+                    wrongVisibility.value = availability.isAvailable
+                    okVisibility.value = !availability.isAvailable
+                },
+                { error ->
+                    error?.let { errorData.value = it }
+                }
+            )
             progressVisibility.value = false
             checkVisibility.value = true
         }
@@ -59,5 +66,5 @@ class PCViewModelImpl : ViewModel(), PCViewModel {
 
     override fun wrongVisibility(): LiveData<Boolean> = wrongVisibility
 
-
+    override fun showError(): LiveData<DomainError> = errorData
 }
