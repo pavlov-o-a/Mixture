@@ -1,10 +1,10 @@
-package com.mixture.packagecheck.ui
+package com.mixture.idcheck.ui
 
 import androidx.lifecycle.LiveData
 import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
 
-interface PCViewModel {
+interface IdCheckViewModel {
 
     fun navigationClicked()
     fun textChanged()

@@ -1,4 +1,4 @@
-package com.mixture.packagecheck.ui
+package com.mixture.idcheck.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,17 +11,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mixture.common.utils.setVisibility
-import com.mixture.packagecheck.R
-import com.mixture.packagecheck.databinding.FragmentPackageCheckBinding
-import com.mixture.packagecheck.di.DaggerDIComponent
+import com.mixture.idcheck.R
+import com.mixture.idcheck.databinding.FragmentPackageCheckBinding
+import com.mixture.idcheck.di.DaggerDIComponent
 import javax.inject.Inject
 
 class PackageCheckFragment : Fragment(R.layout.fragment_package_check) {
     lateinit var viewBinder: FragmentPackageCheckBinding
 
     @Inject
-    lateinit var viewModelProvider: PCViewModelProvider
-    private val viewModel: PCViewModel by lazy {
+    lateinit var viewModelProvider: IdCheckViewModelProvider
+    private val viewModel: IdCheckViewModel by lazy {
         viewModelProvider.getViewModel(this)
     }
 

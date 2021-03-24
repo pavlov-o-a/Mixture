@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.mixture.packagecheck">
+    package="com.mixture.idcheck">
 
     <dist:module
         dist:instant="false"

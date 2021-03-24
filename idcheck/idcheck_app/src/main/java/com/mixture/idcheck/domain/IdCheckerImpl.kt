@@ -1,9 +1,9 @@
-package com.mixture.packagecheck.domain
+package com.mixture.idcheck.domain
 
 import com.mixture.common.entities.app.DomainError
 import com.mixture.common.entities.app.DomainResult
 import com.mixture.common.entities.app.PackageAvailability
-import com.mixture.packagecheck.di.DIScope
+import com.mixture.idcheck.di.DIScope
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 import kotlin.random.Random

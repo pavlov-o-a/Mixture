@@ -33,7 +33,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':about', ':profile', ':packagecheck:packagecheck_app']
+    dynamicFeatures = [':about', ':profile', ':idcheck:idcheck_app']
 }
 
 dependencies {

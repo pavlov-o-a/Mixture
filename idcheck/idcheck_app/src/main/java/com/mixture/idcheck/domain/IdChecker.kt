@@ -1,4 +1,4 @@
-package com.mixture.packagecheck.domain
+package com.mixture.idcheck.domain
 
 import com.mixture.common.entities.app.DomainResult
 import com.mixture.common.entities.app.PackageAvailability

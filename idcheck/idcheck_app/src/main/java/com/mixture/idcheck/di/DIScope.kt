@@ -1,4 +1,4 @@
-package com.mixture.packagecheck.di
+package com.mixture.idcheck.di
 
 import javax.inject.Scope
 

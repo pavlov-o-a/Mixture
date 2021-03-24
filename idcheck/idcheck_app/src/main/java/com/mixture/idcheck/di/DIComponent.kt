@@ -1,6 +1,6 @@
-package com.mixture.packagecheck.di
+package com.mixture.idcheck.di
 
-import com.mixture.packagecheck.ui.PackageCheckFragment
+import com.mixture.idcheck.ui.PackageCheckFragment
 import dagger.Component
 
 @Component(modules = [DIModule::class])

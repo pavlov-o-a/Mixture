@@ -1,4 +1,4 @@
-package com.mixture.packagecheck.ui
+package com.mixture.idcheck.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
 import com.mixture.common.utils.trigger
-import com.mixture.packagecheck.domain.IDChecker
+import com.mixture.idcheck.domain.IDChecker
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class PCViewModelImpl @Inject constructor(private val idChecker: IDChecker) : ViewModel(),
-    PCViewModel {
+class IdCheckViewModelImpl @Inject constructor(private val idChecker: IDChecker) : ViewModel(),
+    IdCheckViewModel {
     private val navigateUp = MutableLiveData<Trigger>()
     private val showInfo = MutableLiveData<Trigger>()
     private val checkVisibility = MutableLiveData<Boolean>()
