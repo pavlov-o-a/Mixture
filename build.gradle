@@ -8,6 +8,8 @@ buildscript {
     ext.ext_junit_v = "1.1.2"
     ext.espresso_v = "3.3.0"
     ext.annotation_v = "3.3.0"
+    ext.lifecycle_v = "2.3.0"
+    ext.dagger_v = "2.33"
 
     repositories {
         google()

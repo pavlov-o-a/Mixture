@@ -9,15 +9,25 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mixture.common.utils.setVisibility
 import com.mixture.packagecheck.R
 import com.mixture.packagecheck.databinding.FragmentPackageCheckBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlin.random.Random
+import com.mixture.packagecheck.di.DaggerDIComponent
+import javax.inject.Inject
 
 class PackageCheckFragment : Fragment(R.layout.fragment_package_check) {
     lateinit var viewBinder: FragmentPackageCheckBinding
+
+    @Inject
+    lateinit var viewModelProvider: PCViewModelProvider
+    private val viewModel: PCViewModel by lazy {
+        viewModelProvider.getViewModel(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DaggerDIComponent.create().inject(this)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,27 +39,34 @@ class PackageCheckFragment : Fragment(R.layout.fragment_package_check) {
         }
         setHasOptionsMenu(true)
         viewBinder.packageToolbar.setNavigationOnClickListener {
-            Navigation.findNavController(it).navigateUp()
+            viewModel.navigationClicked()
         }
         viewBinder.packageEdit.addTextChangedListener {
-            viewBinder.packageWrong.visibility = View.GONE
-            viewBinder.packageOk.visibility = View.GONE
+            viewModel.textChanged()
         }
         viewBinder.packageCheck.setOnClickListener {
-            MainScope().launch {
-                viewBinder.packageCheck.visibility = View.INVISIBLE
-                viewBinder.packageProgress.visibility = View.VISIBLE
-                delay(2000)
-                viewBinder.packageCheck.visibility = View.VISIBLE
-                viewBinder.packageProgress.visibility = View.GONE
-                if (Random.nextBoolean()) {
-                    viewBinder.packageOk.visibility = View.VISIBLE
-                    viewBinder.packageWrong.visibility = View.GONE
-                } else {
-                    viewBinder.packageWrong.visibility = View.VISIBLE
-                    viewBinder.packageOk.visibility = View.GONE
-                }
-            }
+            viewModel.checkClicked()
+        }
+        viewModel.navigateUpLiveData().observe(viewLifecycleOwner) {
+            Navigation.findNavController(requireView()).navigateUp()
+        }
+        viewModel.okVisibility().observe(viewLifecycleOwner) {
+            viewBinder.packageOk.setVisibility(it)
+        }
+        viewModel.wrongVisibility().observe(viewLifecycleOwner) {
+            viewBinder.packageWrong.setVisibility(it)
+        }
+        viewModel.checkVisibility().observe(viewLifecycleOwner) {
+            viewBinder.packageCheck.visibility = if (it) View.VISIBLE else View.INVISIBLE
+        }
+        viewModel.progressVisibility().observe(viewLifecycleOwner) {
+            viewBinder.packageProgress.setVisibility(it)
+        }
+        viewModel.showInfoLiveData().observe(viewLifecycleOwner) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage("")
+                .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
+                .show()
         }
     }
 
@@ -57,10 +74,7 @@ class PackageCheckFragment : Fragment(R.layout.fragment_package_check) {
         menu.clear()
         inflater.inflate(com.mixture.common.R.menu.info_menu, menu)
         menu.findItem(com.mixture.common.R.id.menu_info).setOnMenuItemClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setMessage("")
-                .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
-                .show()
+            viewModel.infoClicked()
             true
         }
     }
