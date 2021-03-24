@@ -44,6 +44,7 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:$navigation_v"
     api "androidx.navigation:navigation-ui-ktx:$navigation_v"
     api "androidx.navigation:navigation-dynamic-features-fragment:$navigation_v"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_v"
 
     api project(":common:common_app")
     api project(":common:common_kmm")

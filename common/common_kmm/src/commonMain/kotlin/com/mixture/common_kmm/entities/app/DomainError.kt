@@ -1,6 +1,5 @@
 package com.mixture.common_kmm.entities.app
 
-enum class DomainError {
-    NETWORK_ERROR,
-    UNKNOWN_ERROR
-}
+sealed class DomainError(val errorMessage: String = "")
+class NetworkError(errorMessage: String = "") : DomainError(errorMessage)
+class UnknownError(errorMessage: String = "") : DomainError(errorMessage)

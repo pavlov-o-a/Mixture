@@ -8,7 +8,7 @@ interface IdCheckViewModel {
 
     fun navigationClicked()
     fun textChanged()
-    fun checkClicked()
+    fun checkClicked(packageId: String)
     fun infoClicked()
     fun navigateUpLiveData(): LiveData<Trigger>
     fun showInfoLiveData(): LiveData<Trigger>
@@ -17,4 +17,5 @@ interface IdCheckViewModel {
     fun okVisibility(): LiveData<Boolean>
     fun wrongVisibility(): LiveData<Boolean>
     fun showError(): LiveData<DomainError>
+    fun shortId(): LiveData<Int>
 }

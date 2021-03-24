@@ -46,7 +46,7 @@ class IdCheckFragment : Fragment(R.layout.fragment_package_check) {
             viewModel.textChanged()
         }
         viewBinder.packageCheck.setOnClickListener {
-            viewModel.checkClicked()
+            viewModel.checkClicked(viewBinder.packageEdit.text?.toString() ?: "")
         }
         viewModel.navigateUpLiveData().observe(viewLifecycleOwner) {
             Navigation.findNavController(requireView()).navigateUp()
@@ -65,12 +65,24 @@ class IdCheckFragment : Fragment(R.layout.fragment_package_check) {
         }
         viewModel.showInfoLiveData().observe(viewLifecycleOwner) {
             MaterialAlertDialogBuilder(requireContext())
-                .setMessage("")
+                .setMessage(R.string.package_info)
                 .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
                 .show()
         }
         viewModel.showError().observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), "Error occurred: ${it.name}", Toast.LENGTH_SHORT)
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.package_error, it.errorMessage),
+                Toast.LENGTH_SHORT
+            )
+                .show()
+        }
+        viewModel.shortId().observe(viewLifecycleOwner) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.package_short, it),
+                Toast.LENGTH_SHORT
+            )
                 .show()
         }
     }

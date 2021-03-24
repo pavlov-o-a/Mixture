@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
-val kotlin_version: String by project
 val coroutines_v: String by project
+val ktor_v: String = "1.5.2"
 
 plugins {
     kotlin("multiplatform")
@@ -21,11 +21,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":common:common_kmm"))
+                implementation("io.ktor:ktor-client-core:$ktor_v")
+                implementation("io.ktor:ktor-client-cio:$ktor_v")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_v")
             }
         }
-        val androidMain by getting
-        val iosMain by getting
     }
 }
 

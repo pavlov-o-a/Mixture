@@ -5,4 +5,7 @@
     <string name="package_taken">This package id is already taken!</string>
     <string name="package_free">This package id is free!</string>
     <string name="package_hint">Type your package id</string>
+    <string name="package_info">This screen is Feature Module. Also it uses ViewModel with LiveData, dagger for DI and logic is in another Kotlin Multi Platform module. Ktor is used for network requests.</string>
+    <string name="package_error">Error occurred: %s</string>
+    <string name="package_short">Package id should be longer than %d symbols</string>
 </resources>

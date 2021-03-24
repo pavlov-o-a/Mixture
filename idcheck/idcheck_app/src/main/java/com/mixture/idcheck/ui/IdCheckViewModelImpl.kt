@@ -8,7 +8,9 @@ import com.mixture.common.utils.Trigger
 import com.mixture.common.utils.trigger
 import com.mixture.common_kmm.entities.app.DomainError
 import com.mixture.idcheck.domain.IDChecker
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class IdCheckViewModelImpl @Inject constructor(private val idChecker: IDChecker) : ViewModel(),
@@ -20,6 +22,11 @@ class IdCheckViewModelImpl @Inject constructor(private val idChecker: IDChecker)
     private val okVisibility = MutableLiveData<Boolean>()
     private val wrongVisibility = MutableLiveData<Boolean>()
     private val errorData = MutableLiveData<DomainError>()
+    private val shortId = MutableLiveData<Int>()
+
+    companion object {
+        private const val MIN_ID_LENGTH = 3
+    }
 
     override fun navigationClicked() {
         navigateUp.trigger()
@@ -30,23 +37,33 @@ class IdCheckViewModelImpl @Inject constructor(private val idChecker: IDChecker)
         okVisibility.value = false
     }
 
-    override fun checkClicked() {
-        checkVisibility.value = false
-        okVisibility.value = false
-        wrongVisibility.value = false
-        progressVisibility.value = true
-        viewModelScope.launch {
-            idChecker.checkPackageAvailability().process(
-                { availability ->
-                    wrongVisibility.value = availability.isAvailable
-                    okVisibility.value = !availability.isAvailable
-                },
-                { error ->
-                    error?.let { errorData.value = it }
+    override fun checkClicked(packageId: String) {
+        if (packageId.length > MIN_ID_LENGTH) {
+            checkVisibility.value = false
+            okVisibility.value = false
+            wrongVisibility.value = false
+            progressVisibility.value = true
+            viewModelScope.launch {
+                try {
+                    withContext(Dispatchers.IO) {
+                        idChecker.checkPackageAvailability(packageId)
+                    }.process(
+                        { availability ->
+                            wrongVisibility.value = !availability.isAvailable
+                            okVisibility.value = availability.isAvailable
+                        },
+                        { error ->
+                            error?.let { errorData.value = it }
+                        }
+                    )
+                } catch (exc: Exception) {
+                    exc.printStackTrace()
                 }
-            )
-            progressVisibility.value = false
-            checkVisibility.value = true
+                progressVisibility.value = false
+                checkVisibility.value = true
+            }
+        } else {
+            shortId.value = MIN_ID_LENGTH
         }
     }
 
@@ -67,4 +84,6 @@ class IdCheckViewModelImpl @Inject constructor(private val idChecker: IDChecker)
     override fun wrongVisibility(): LiveData<Boolean> = wrongVisibility
 
     override fun showError(): LiveData<DomainError> = errorData
+
+    override fun shortId(): LiveData<Int> = shortId
 }

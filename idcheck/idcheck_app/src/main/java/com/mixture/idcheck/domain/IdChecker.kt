@@ -5,5 +5,5 @@ import com.mixture.common_kmm.entities.app.PackageAvailability
 
 interface IDChecker {
 
-    suspend fun checkPackageAvailability(): DomainResult<PackageAvailability>
+    suspend fun checkPackageAvailability(packageId: String): DomainResult<PackageAvailability>
 }
