@@ -1,8 +1,8 @@
 package com.mixture.idcheck.ui
 
 import androidx.lifecycle.LiveData
-import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
+import com.mixture.common_kmm.entities.app.DomainError
 
 interface IdCheckViewModel {
 

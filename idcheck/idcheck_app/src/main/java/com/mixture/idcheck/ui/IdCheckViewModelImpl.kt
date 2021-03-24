@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mixture.common.entities.app.DomainError
 import com.mixture.common.utils.Trigger
 import com.mixture.common.utils.trigger
+import com.mixture.common_kmm.entities.app.DomainError
 import com.mixture.idcheck.domain.IDChecker
 import kotlinx.coroutines.launch
 import javax.inject.Inject

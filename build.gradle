@@ -10,6 +10,7 @@ buildscript {
     ext.annotation_v = "3.3.0"
     ext.lifecycle_v = "2.3.0"
     ext.dagger_v = "2.33"
+    ext.coroutines_v = "1.4.3"
 
     repositories {
         google()

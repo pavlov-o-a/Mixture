@@ -16,7 +16,7 @@ import com.mixture.idcheck.databinding.FragmentPackageCheckBinding
 import com.mixture.idcheck.di.DaggerDIComponent
 import javax.inject.Inject
 
-class PackageCheckFragment : Fragment(R.layout.fragment_package_check) {
+class IdCheckFragment : Fragment(R.layout.fragment_package_check) {
     lateinit var viewBinder: FragmentPackageCheckBinding
 
     @Inject

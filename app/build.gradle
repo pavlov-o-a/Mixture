@@ -45,7 +45,8 @@ dependencies {
     api "androidx.navigation:navigation-ui-ktx:$navigation_v"
     api "androidx.navigation:navigation-dynamic-features-fragment:$navigation_v"
 
-    api project(":common")
+    api project(":common:common_app")
+    api project(":common:common_kmm")
 
     testImplementation "junit:junit:$junit_v"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_v"

@@ -26,5 +26,5 @@
     <fragment
         app:moduleName="idcheck_app"
         android:id="@+id/nav_package"
-        android:name="com.mixture.idcheck.ui.PackageCheckFragment" />
+        android:name="com.mixture.idcheck.ui.IdCheckFragment" />
 </navigation>

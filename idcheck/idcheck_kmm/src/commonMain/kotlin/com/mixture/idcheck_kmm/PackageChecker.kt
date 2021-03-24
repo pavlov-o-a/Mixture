@@ -1,9 +1,8 @@
-package com.mixture.idcheck.domain
+package com.mixture.idcheck_kmm
 
 import com.mixture.common_kmm.entities.app.DomainResult
 import com.mixture.common_kmm.entities.app.PackageAvailability
 
-interface IDChecker {
-
+interface PackageChecker {
     suspend fun checkPackageAvailability(): DomainResult<PackageAvailability>
 }

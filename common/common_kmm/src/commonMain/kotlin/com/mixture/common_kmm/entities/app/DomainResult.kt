@@ -1,4 +1,4 @@
-package com.mixture.common.entities.app
+package com.mixture.common_kmm.entities.app
 
 class DomainResult<T>(val value: T?, val error: DomainError? = null) {
 

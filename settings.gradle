@@ -2,5 +2,7 @@ rootProject.name = "Mixture"
 include ':app'
 include ':about'
 include ':profile'
-include ':common'
 include ':idcheck:idcheck_app'
+include ':idcheck:idcheck_kmm'
+include ':common:common_app'
+include ':common:common_kmm'
